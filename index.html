@@ -3,198 +3,327 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veltravia Technologies — Software built to be used</title>
-<meta name="description" content="Veltravia Technologies is an independent software company building honest, fast, useful products — from AI-powered market analysis to private messaging.">
+<title>Veltravia Technologies — Independent software, built properly</title>
+<meta name="description" content="Veltravia Technologies is an independent software company building honest, fast, useful products — from AI-powered market analysis to private messaging to AI coding tools.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236C63FF'/%3E%3Cstop offset='1' stop-color='%233B82F6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cpath d='M18 46V18l14 20 14-20v28' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #FAFBFF;
     --surface: #FFFFFF;
+    --tint: #F4F6FD;
     --text: #16213A;
-    --muted: #5A6B87;
+    --muted: #56678A;
+    --faint: #8B97B8;
     --border: #E3E8F4;
+    --border-strong: #CDD5EC;
     --violet: #6C63FF;
     --blue: #3B82F6;
     --accent: #4F46E5;
     --accent-soft: #EEF0FF;
-    --shadow-lg: 0 18px 50px rgba(22, 33, 58, .12);
+    --green: #15803D;
+    --amber: #B45309;
+    --shadow-sm: 0 4px 16px rgba(22, 33, 58, .06);
+    --shadow-md: 0 10px 32px rgba(22, 33, 58, .09);
+    --shadow-lg: 0 24px 60px rgba(22, 33, 58, .14);
     --radius: 20px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  a { color: inherit; }
 
   /* ---------- Nav ---------- */
   nav {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(250, 251, 255, .85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 251, 255, .82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s, box-shadow .3s;
   }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-weight: 700; font-size: 17px; letter-spacing: -.01em; }
+  nav.scrolled { border-color: var(--border); box-shadow: 0 4px 24px rgba(22, 33, 58, .05); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 800; font-size: 17px; letter-spacing: -.02em; }
   .brand-mark {
-    width: 34px; height: 34px; border-radius: 9px;
+    width: 36px; height: 36px; border-radius: 10px;
     background: linear-gradient(135deg, var(--violet), var(--blue));
     display: flex; align-items: center; justify-content: center;
-    color: #fff; font-weight: 800; font-size: 17px;
+    color: #fff; font-weight: 800; font-size: 18px;
+    box-shadow: 0 4px 14px rgba(108, 99, 255, .35);
   }
-  .nav-links { display: flex; gap: 28px; }
-  .nav-links a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; transition: color .2s; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 14.5px; font-weight: 600; transition: color .2s; }
   .nav-links a:hover { color: var(--accent); }
   .nav-cta {
-    text-decoration: none; font-size: 15px; font-weight: 600;
+    text-decoration: none; font-size: 14.5px; font-weight: 700;
     color: #fff; background: linear-gradient(135deg, var(--violet), var(--blue));
-    padding: 10px 20px; border-radius: 12px;
+    padding: 11px 22px; border-radius: 12px;
     box-shadow: 0 6px 18px rgba(108, 99, 255, .35);
     transition: transform .2s, box-shadow .2s;
   }
-  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(108, 99, 255, .45); }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(108, 99, 255, .48); }
+  .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .burger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+  .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; flex-direction: column; gap: 4px; padding: 10px 28px 22px;
+    background: rgba(250, 251, 255, .97); border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu.show { display: flex; }
+  .mobile-menu a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 15px; padding: 11px 4px; border-bottom: 1px solid var(--border); }
+  .mobile-menu a:last-child { border-bottom: none; }
 
   /* ---------- Hero ---------- */
-  .hero { padding: 96px 0 84px; position: relative; overflow: hidden; }
-  .hero::before, .hero::after {
-    content: ""; position: absolute; border-radius: 50%; filter: blur(90px); opacity: .35; z-index: 0;
+  .hero { position: relative; padding: 110px 0 90px; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .hero-bg .grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(79, 70, 229, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 70, 229, .05) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 75%);
   }
-  .hero::before { width: 420px; height: 420px; background: #DCD9FF; top: -140px; right: -80px; }
-  .hero::after { width: 380px; height: 380px; background: #C9E2FF; bottom: -160px; left: -120px; }
+  .hero-bg .glow-a, .hero-bg .glow-b { position: absolute; border-radius: 50%; filter: blur(100px); opacity: .4; }
+  .hero-bg .glow-a { width: 480px; height: 480px; background: #DCD9FF; top: -160px; right: -100px; }
+  .hero-bg .glow-b { width: 420px; height: 420px; background: #C9E2FF; bottom: -200px; left: -140px; }
   .hero .container { position: relative; z-index: 1; }
   .eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
     color: var(--accent);
     background: var(--accent-soft); border: 1px solid #DDE0FF;
-    padding: 7px 14px; border-radius: 999px; margin-bottom: 26px;
+    padding: 8px 16px; border-radius: 999px; margin-bottom: 30px;
   }
-  .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: linear-gradient(135deg, var(--violet), var(--blue)); }
   h1 {
-    font-size: clamp(38px, 6vw, 60px); line-height: 1.08; letter-spacing: -.03em;
-    font-weight: 800; max-width: 720px;
+    font-size: clamp(42px, 6.5vw, 68px); line-height: 1.05; letter-spacing: -.035em;
+    font-weight: 800; max-width: 780px;
   }
   h1 .grad {
-    background: linear-gradient(120deg, var(--violet), var(--blue));
+    background: linear-gradient(120deg, var(--violet) 10%, var(--blue) 90%);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .hero p { max-width: 560px; margin-top: 22px; font-size: 18px; color: var(--muted); }
-  .hero-actions { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
+  .hero p.lede { max-width: 600px; margin-top: 26px; font-size: 19px; color: var(--muted); font-weight: 450; }
+  .hero-actions { display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
   .btn-primary, .btn-ghost {
-    display: inline-flex; align-items: center; gap: 8px;
-    text-decoration: none; font-weight: 600; font-size: 16px;
-    padding: 15px 28px; border-radius: 14px; transition: transform .2s, box-shadow .2s, background .2s;
+    display: inline-flex; align-items: center; gap: 9px;
+    text-decoration: none; font-weight: 700; font-size: 15.5px;
+    padding: 16px 30px; border-radius: 14px; transition: transform .2s, box-shadow .2s, background .2s, border-color .2s;
   }
   .btn-primary {
     color: #fff; background: linear-gradient(135deg, var(--violet), var(--blue));
-    box-shadow: 0 10px 28px rgba(108, 99, 255, .38);
+    box-shadow: 0 12px 30px rgba(108, 99, 255, .38);
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(108, 99, 255, .48); }
-  .btn-ghost { color: var(--text); background: var(--surface); border: 1px solid var(--border); }
-  .btn-ghost:hover { border-color: #C9CEEE; background: #F4F5FF; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(108, 99, 255, .5); }
+  .btn-primary .arrow { transition: transform .2s; }
+  .btn-primary:hover .arrow { transform: translateX(3px); }
+  .btn-ghost { color: var(--text); background: var(--surface); border: 1.5px solid var(--border-strong); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+  /* hero stats */
+  .hero-stats {
+    margin-top: 80px; display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border); padding-top: 34px; gap: 24px;
+  }
+  .stat .num { font-size: 30px; font-weight: 800; letter-spacing: -.02em; }
+  .stat .num span { background: linear-gradient(120deg, var(--violet), var(--blue)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .stat .lbl { font-size: 13px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .1em; margin-top: 4px; }
 
   /* ---------- Sections ---------- */
-  section { padding: 84px 0; }
-  .section-head { max-width: 560px; margin-bottom: 48px; }
-  .kicker { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-  .section-head h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.02em; line-height: 1.15; font-weight: 800; }
-  .section-head p { margin-top: 14px; color: var(--muted); font-size: 17px; }
+  section { padding: 96px 0; }
+  .section-head { max-width: 620px; margin-bottom: 56px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .kicker {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .kicker::before { content: ""; width: 26px; height: 2px; background: linear-gradient(90deg, var(--violet), var(--blue)); border-radius: 2px; }
+  .section-head h2 { font-size: clamp(30px, 4.5vw, 44px); letter-spacing: -.025em; line-height: 1.12; font-weight: 800; }
+  .section-head p { margin-top: 16px; color: var(--muted); font-size: 17.5px; }
 
   /* ---------- Products ---------- */
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
   .product {
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 30px; position: relative; overflow: hidden;
+    padding: 34px 30px; position: relative; overflow: hidden;
+    transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s, border-color .3s;
+    display: flex; flex-direction: column;
+  }
+  .product:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--border-strong); }
+  .product::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--violet), var(--blue)); opacity: 0; transition: opacity .3s; }
+  .product:hover::before { opacity: 1; }
+  .product-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+  .product-icon {
+    width: 54px; height: 54px; border-radius: 15px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 27px;
+  }
+  .pi-1 { background: linear-gradient(135deg, #EEF0FF, #E4E8FF); }
+  .pi-2 { background: linear-gradient(135deg, #E7F6EC, #DDF1E4); }
+  .pi-3 { background: linear-gradient(135deg, #E5F4FF, #DBEFFF); }
+  .status {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    padding: 6px 13px; border-radius: 999px;
+  }
+  .status-live { color: var(--green); background: #DCFCE7; border: 1px solid #BBF0CC; }
+  .status-dev { color: var(--amber); background: #FEF3C7; border: 1px solid #FDE9B3; }
+  .product h3 { font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+  .product .desc { margin-top: 10px; color: var(--muted); font-size: 15.5px; }
+  .product ul { list-style: none; margin-top: 22px; display: grid; gap: 11px; }
+  .product li { display: flex; gap: 11px; align-items: flex-start; font-size: 14.5px; color: var(--text); font-weight: 550; }
+  .check {
+    flex: none; width: 19px; height: 19px; border-radius: 6px; margin-top: 2px;
+    background: var(--accent-soft); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800;
+  }
+  .product-tags { display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid var(--border); }
+  .tag { font-size: 12px; font-weight: 600; color: var(--muted); background: #F3F5FB; border: 1px solid var(--border); padding: 5px 12px; border-radius: 999px; }
+
+  /* ---------- Approach ---------- */
+  .approach { background: var(--tint); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .step {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 34px 30px; position: relative; overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .step:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .step-num {
+    font-size: 72px; font-weight: 900; letter-spacing: -.04em; line-height: 1;
+    background: linear-gradient(135deg, #D6D5F5, #E8F0FE);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 18px;
+  }
+  .step h4 { font-size: 19px; font-weight: 800; letter-spacing: -.01em; }
+  .step p { margin-top: 10px; color: var(--muted); font-size: 15px; }
+
+  /* ---------- Company ---------- */
+  .company-split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+  .company-copy p { color: var(--muted); font-size: 17.5px; margin-bottom: 18px; }
+  .company-copy strong { color: var(--text); font-weight: 700; }
+  .values { display: grid; gap: 16px; }
+  .value {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 24px 26px;
     transition: transform .25s, box-shadow .25s;
   }
-  .product:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-  .product::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--violet), var(--blue)); opacity: 0; transition: opacity .25s; }
-  .product:hover::before { opacity: 1; }
-  .product-icon {
-    width: 52px; height: 52px; border-radius: 14px;
-    display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
-    font-size: 26px;
-  }
-  .pi-1 { background: #EEF0FF; }
-  .pi-2 { background: #E7F6EC; }
-  .pi-3 { background: #E5F4FF; }
-  .status {
-    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
-  }
-  .status-live { color: #15803D; background: #DCFCE7; }
-  .status-dev { color: #B45309; background: #FEF3C7; }
-  .product h3 { font-size: 21px; font-weight: 700; letter-spacing: -.01em; }
-  .product p { margin-top: 10px; color: var(--muted); font-size: 15.5px; }
-  .product-tags { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
-  .tag { font-size: 12.5px; font-weight: 600; color: var(--muted); background: #F3F5FB; border: 1px solid var(--border); padding: 5px 12px; border-radius: 999px; }
-
-  /* ---------- Company / Values ---------- */
-  .company-split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
-  .company-copy p { color: var(--muted); font-size: 17px; margin-bottom: 16px; }
-  .company-copy strong { color: var(--text); }
-  .values { display: grid; gap: 18px; }
-  .value {
-    display: flex; gap: 16px; align-items: flex-start;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px 22px;
-  }
+  .value:hover { transform: translateX(4px); box-shadow: var(--shadow-sm); }
   .value-icon {
-    flex: none; width: 42px; height: 42px; border-radius: 12px;
-    background: var(--accent-soft); color: var(--accent);
-    display: flex; align-items: center; justify-content: center; font-size: 20px;
+    flex: none; width: 46px; height: 46px; border-radius: 13px;
+    background: linear-gradient(135deg, var(--accent-soft), #E4E8FF);
+    display: flex; align-items: center; justify-content: center; font-size: 21px;
   }
-  .value h4 { font-size: 16px; font-weight: 700; }
-  .value p { font-size: 14.5px; color: var(--muted); margin-top: 4px; }
+  .value h4 { font-size: 16.5px; font-weight: 800; }
+  .value p { font-size: 14.5px; color: var(--muted); margin-top: 5px; }
+
+  /* ---------- FAQ ---------- */
+  .faq { max-width: 760px; margin: 0 auto; }
+  details {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 0; margin-bottom: 12px; overflow: hidden;
+    transition: border-color .25s, box-shadow .25s;
+  }
+  details[open] { border-color: var(--border-strong); box-shadow: var(--shadow-sm); }
+  summary {
+    cursor: pointer; list-style: none;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 21px 26px;
+    font-size: 16.5px; font-weight: 700; letter-spacing: -.01em;
+    -webkit-user-select: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary .plus {
+    flex: none; width: 26px; height: 26px; border-radius: 8px;
+    background: var(--accent-soft); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700; transition: transform .3s;
+  }
+  details[open] .plus { transform: rotate(45deg); }
+  details .faq-body { padding: 0 26px 22px; color: var(--muted); font-size: 15.5px; }
 
   /* ---------- Contact ---------- */
   .contact-card {
-    background: linear-gradient(135deg, #F5F5FF, #EFF6FF);
-    border: 1px solid #DDE0FF; border-radius: 24px;
-    padding: 64px 40px; text-align: center;
+    position: relative;
+    background: var(--surface);
+    border: 1px solid #DDE0FF; border-radius: 28px;
+    padding: 76px 44px; text-align: center; overflow: hidden;
+    box-shadow: var(--shadow-md);
   }
-  .contact-card h2 { font-size: clamp(28px, 4vw, 38px); font-weight: 800; letter-spacing: -.02em; }
-  .contact-card p { color: var(--muted); max-width: 480px; margin: 14px auto 0; font-size: 17px; }
+  .contact-card::before {
+    content: ""; position: absolute; inset: -1px; border-radius: 28px; padding: 1.5px;
+    background: linear-gradient(135deg, var(--violet), var(--blue), #9EC5FE);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    pointer-events: none;
+  }
+  .contact-card::after {
+    content: ""; position: absolute; width: 420px; height: 420px; border-radius: 50%;
+    background: #E4E8FF; filter: blur(90px); opacity: .55; top: -220px; left: 50%; transform: translateX(-50%);
+  }
+  .contact-card > * { position: relative; z-index: 1; }
+  .contact-card h2 { font-size: clamp(30px, 4.5vw, 42px); font-weight: 800; letter-spacing: -.025em; }
+  .contact-card p { color: var(--muted); max-width: 500px; margin: 16px auto 0; font-size: 17.5px; }
   .contact-mail {
-    display: inline-flex; align-items: center; gap: 10px; margin-top: 28px;
-    text-decoration: none; font-weight: 600; font-size: 17px; color: #fff;
+    display: inline-flex; align-items: center; gap: 11px; margin-top: 32px;
+    text-decoration: none; font-weight: 700; font-size: 16.5px; color: #fff;
     background: linear-gradient(135deg, var(--violet), var(--blue));
-    padding: 15px 30px; border-radius: 14px;
-    box-shadow: 0 10px 28px rgba(108, 99, 255, .35);
+    padding: 17px 34px; border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(108, 99, 255, .4);
     transition: transform .2s, box-shadow .2s;
   }
-  .contact-mail:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(108, 99, 255, .48); }
+  .contact-mail:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(108, 99, 255, .52); }
 
   /* ---------- Footer ---------- */
-  footer { border-top: 1px solid var(--border); padding: 36px 0; }
-  .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-  .footer-inner p { color: var(--muted); font-size: 14px; }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { color: var(--muted); font-size: 14px; text-decoration: none; }
-  .footer-links a:hover { color: var(--accent); }
+  footer { border-top: 1px solid var(--border); padding: 64px 0 40px; background: #F8F9FE; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand p { color: var(--muted); font-size: 14.5px; margin-top: 14px; max-width: 260px; }
+  .footer-col h5 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--text); margin-bottom: 16px; }
+  .footer-col a { display: block; text-decoration: none; color: var(--muted); font-size: 14.5px; margin-bottom: 11px; transition: color .2s; }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-bottom {
+    border-top: 1px solid var(--border); padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .footer-bottom p { color: var(--faint); font-size: 13.5px; }
 
-  /* ---------- Reveal animation ---------- */
-  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1); }
   .reveal.visible { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .08s; } .reveal.d2 { transition-delay: .16s; } .reveal.d3 { transition-delay: .24s; }
 
   /* ---------- Responsive ---------- */
-  @media (max-width: 860px) {
-    .grid-3 { grid-template-columns: 1fr; }
-    .company-split { grid-template-columns: 1fr; gap: 32px; }
-    .nav-links { display: none; }
-    section { padding: 64px 0; }
-    .hero { padding: 72px 0 60px; }
+  @media (max-width: 900px) {
+    .grid-3, .steps { grid-template-columns: 1fr; }
+    .company-split { grid-template-columns: 1fr; gap: 40px; }
+    .nav-links, .nav-cta { display: none; }
+    .burger { display: flex; }
+    section { padding: 68px 0; }
+    .hero { padding: 76px 0 64px; }
+    .hero-stats { grid-template-columns: 1fr; gap: 18px; margin-top: 56px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .contact-card { padding: 56px 26px; }
   }
 </style>
 </head>
 <body>
 
-<nav>
+<nav id="nav">
   <div class="container nav-inner">
     <a class="brand" href="#top">
       <span class="brand-mark">V</span>
@@ -202,21 +331,49 @@
     </a>
     <div class="nav-links">
       <a href="#products">Products</a>
+      <a href="#approach">Approach</a>
       <a href="#company">Company</a>
-      <a href="#values">Values</a>
+      <a href="#faq">FAQ</a>
     </div>
-    <a class="nav-cta" href="#contact">Contact</a>
+    <a class="nav-cta" href="#contact">Get in touch</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#products">Products</a>
+    <a href="#approach">Approach</a>
+    <a href="#company">Company</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Get in touch</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
+  <div class="hero-bg">
+    <div class="grid"></div>
+    <div class="glow-a"></div>
+    <div class="glow-b"></div>
+  </div>
   <div class="container">
-    <span class="eyebrow">Veltravia Technologies</span>
+    <span class="eyebrow">Independent software company</span>
     <h1>Software that works, <span class="grad">built end-to-end.</span></h1>
-    <p>We're an independent software company that designs, builds, and runs its own products — from AI-powered market analysis to private messaging. No half-features. No shortcuts.</p>
+    <p class="lede">Veltravia Technologies designs, builds, and runs its own products — from AI-powered market analysis to private messaging to AI coding tools. No half-features. No shortcuts. No excuses.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#products">Explore our products</a>
+      <a class="btn-primary" href="#products">Explore our products <span class="arrow">→</span></a>
       <a class="btn-ghost" href="#company">About the company</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat reveal">
+        <div class="num"><span>3</span></div>
+        <div class="lbl">Products in the family</div>
+      </div>
+      <div class="stat reveal d1">
+        <div class="num"><span>2</span></div>
+        <div class="lbl">Platforms — Android & iOS</div>
+      </div>
+      <div class="stat reveal d2">
+        <div class="num"><span>100%</span></div>
+        <div class="lbl">Built in-house, end to end</div>
+      </div>
     </div>
   </div>
 </header>
@@ -226,32 +383,56 @@
     <div class="section-head reveal">
       <div class="kicker">Products</div>
       <h2>Three products. One standard.</h2>
-      <p>Everything we ship is built in-house and finished completely — real features, real backends, real support.</p>
+      <p>Everything we ship is designed and engineered in-house — real features, real backends, and support from the people who built them.</p>
     </div>
     <div class="grid-3">
       <div class="product reveal">
-        <div class="product-icon pi-1">📈</div>
-        <span class="status status-live">Available on Android</span>
+        <div class="product-top">
+          <div class="product-icon pi-1">📈</div>
+          <span class="status status-live">Available on Android</span>
+        </div>
         <h3>MarketScope AI</h3>
-        <p>AI-driven market analysis for everyday traders. Personalized to your trading profile, transparent about every call, honest about the risks.</p>
+        <p class="desc">AI-driven market analysis for everyday traders — personalized, transparent, and honest about the risks.</p>
+        <ul>
+          <li><span class="check">✓</span>Analysis tailored to your trading profile</li>
+          <li><span class="check">✓</span>Daily signals with clear reasoning</li>
+          <li><span class="check">✓</span>A trader community that shares real wins</li>
+          <li><span class="check">✓</span>Plain-language risk disclosure on every call</li>
+        </ul>
         <div class="product-tags">
           <span class="tag">AI analysis</span><span class="tag">Signals</span><span class="tag">Community</span>
         </div>
       </div>
-      <div class="product reveal">
-        <div class="product-icon pi-2">💬</div>
-        <span class="status status-dev">In development</span>
+      <div class="product reveal d1">
+        <div class="product-top">
+          <div class="product-icon pi-2">💬</div>
+          <span class="status status-dev">In development</span>
+        </div>
         <h3>Kora Messenger</h3>
-        <p>A full-featured messenger built for real conversations — fast, private, and packed with the features people actually use every day.</p>
+        <p class="desc">A full-featured messenger built for real conversations — fast, private, and complete.</p>
+        <ul>
+          <li><span class="check">✓</span>Everything people expect from a modern messenger</li>
+          <li><span class="check">✓</span>Voice notes and calls, done properly</li>
+          <li><span class="check">✓</span>Groups and broadcasts</li>
+          <li><span class="check">✓</span>Privacy treated as a feature, not a setting</li>
+        </ul>
         <div class="product-tags">
           <span class="tag">Messaging</span><span class="tag">Voice notes</span><span class="tag">Calls</span>
         </div>
       </div>
-      <div class="product reveal">
-        <div class="product-icon pi-3">💻</div>
-        <span class="status status-dev">In development</span>
+      <div class="product reveal d2">
+        <div class="product-top">
+          <div class="product-icon pi-3">💻</div>
+          <span class="status status-dev">In development</span>
+        </div>
         <h3>VN Code</h3>
-        <p>An AI coding tool that builds apps with you — end-to-end, not just snippets. Plugs into ChatGPT and other AI models to supercharge how you build.</p>
+        <p class="desc">An AI coding tool that builds apps with you — end-to-end, not just snippets.</p>
+        <ul>
+          <li><span class="check">✓</span>AI that designs, codes, and ships full apps</li>
+          <li><span class="check">✓</span>Plugs into ChatGPT and other AI models</li>
+          <li><span class="check">✓</span>Built for people who want things working</li>
+          <li><span class="check">✓</span>Real projects, not toy demos</li>
+        </ul>
         <div class="product-tags">
           <span class="tag">AI coding</span><span class="tag">App builder</span><span class="tag">ChatGPT plug-in</span>
         </div>
@@ -260,16 +441,43 @@
   </div>
 </section>
 
-<section id="company" style="background: #F4F6FD;">
+<section class="approach" id="approach">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="kicker" style="justify-content: center;">Approach</div>
+      <h2>How we build.</h2>
+      <p>The same three steps, for every product, every time.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h4>Design it properly</h4>
+        <p>Every product starts with real thinking — what it does, who it serves, and why it deserves to exist. If we can't answer that, we don't build it.</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="step-num">02</div>
+        <h4>Build it completely</h4>
+        <p>Native apps. Real backends. No placeholders, no half-features. A flow either works all the way through, or it doesn't ship.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-num">03</div>
+        <h4>Stand behind it</h4>
+        <p>Plain-language policies, honest support, and updates that keep coming. When something breaks, the people who built it fix it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="company">
   <div class="container company-split">
     <div class="company-copy reveal">
       <div class="kicker">Company</div>
-      <h2 style="font-size: clamp(28px, 4vw, 40px); letter-spacing: -.02em; font-weight: 800; line-height: 1.15; margin-bottom: 20px;">Small by choice. Serious by design.</h2>
-      <p>Veltravia Technologies is an independent software company. We don't outsource the hard parts and we don't ship until things actually work.</p>
-      <p>Every product is built <strong>end-to-end under one roof</strong> — the design, the Android and iOS apps, the backend that powers them, and the support behind it.</p>
+      <h2 style="font-size: clamp(30px, 4.5vw, 44px); letter-spacing: -.025em; font-weight: 800; line-height: 1.12; margin-bottom: 22px;">Small by choice.<br>Serious by design.</h2>
+      <p>Veltravia Technologies is an <strong>independent software company</strong>. We don't outsource the hard parts and we don't ship until things actually work.</p>
+      <p>Every product is built <strong>end-to-end under one roof</strong> — the design, the Android and iOS apps, the backend that powers them, and the support behind it all.</p>
       <p>We'd rather build fewer things properly than many things halfway. That's the whole philosophy.</p>
     </div>
-    <div class="values" id="values">
+    <div class="values">
       <div class="value reveal">
         <div class="value-icon">🔨</div>
         <div>
@@ -277,14 +485,14 @@
           <p>Every feature finished, every flow tested. Nothing ships half-built.</p>
         </div>
       </div>
-      <div class="value reveal">
+      <div class="value reveal d1">
         <div class="value-icon">🤝</div>
         <div>
           <h4>Honesty</h4>
           <p>Plain-language policies, no dark patterns, no fake buttons.</p>
         </div>
       </div>
-      <div class="value reveal">
+      <div class="value reveal d2">
         <div class="value-icon">🚀</div>
         <div>
           <h4>Performance</h4>
@@ -295,7 +503,34 @@
   </div>
 </section>
 
-<section id="contact">
+<section id="faq" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="kicker" style="justify-content: center;">FAQ</div>
+      <h2>Common questions.</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal">
+        <summary>What does Veltravia Technologies do?<span class="plus">+</span></summary>
+        <div class="faq-body">We design, build, and run our own software products. Right now that's MarketScope AI (AI market analysis), Kora Messenger (private messaging), and VN Code (AI-assisted app building). Everything is built in-house.</div>
+      </details>
+      <details class="reveal">
+        <summary>Are your products free to use?<span class="plus">+</span></summary>
+        <div class="faq-body">MarketScope AI is free to start with a generous daily allowance, and a Pro tier for heavier users. Kora and VN Code are still in development — pricing will be announced with each launch.</div>
+      </details>
+      <details class="reveal">
+        <summary>Which platforms do you support?<span class="plus">+</span></summary>
+        <div class="faq-body">Android first — every product ships on Android, with iOS following. MarketScope AI is available on Android today.</div>
+      </details>
+      <details class="reveal">
+        <summary>How do I get support or report a problem?<span class="plus">+</span></summary>
+        <div class="faq-body">Email <a href="mailto:support@marketscopeai.com" style="color: var(--accent); font-weight: 600; text-decoration: none;">support@marketscopeai.com</a> — we read everything and we answer. For anything urgent, put "Urgent" in the subject line.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top: 32px;">
   <div class="container">
     <div class="contact-card reveal">
       <h2>Let's talk.</h2>
@@ -306,20 +541,63 @@
 </section>
 
 <footer>
-  <div class="container footer-inner">
-    <p>© 2026 Veltravia Technologies. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#products">Products</a>
-      <a href="#company">Company</a>
-      <a href="mailto:support@marketscopeai.com">Support</a>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark">V</span>
+          Veltravia Technologies
+        </a>
+        <p>Independent software company. Built end-to-end, stood behind fully.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <a href="#products">MarketScope AI</a>
+        <a href="#products">Kora Messenger</a>
+        <a href="#products">VN Code</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#company">About</a>
+        <a href="#approach">Our approach</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="mailto:support@marketscopeai.com">Support</a>
+        <a href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Veltravia Technologies. All rights reserved.</p>
+      <p>Designed &amp; built in-house — like everything we ship.</p>
     </div>
   </div>
 </footer>
 
 <script>
+  // nav shadow on scroll
+  const nav = document.getElementById("nav");
+  window.addEventListener("scroll", () => {
+    nav.classList.toggle("scrolled", window.scrollY > 8);
+  }, { passive: true });
+
+  // mobile menu
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("mobileMenu");
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("open");
+    menu.classList.toggle("show");
+  });
+  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {
+    burger.classList.remove("open");
+    menu.classList.remove("show");
+  }));
+
+  // reveal on scroll
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 </script>
 
