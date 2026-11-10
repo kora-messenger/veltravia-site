@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veltravia Technologies — Independent software, built properly</title>
-<meta name="description" content="Veltravia Technologies is an independent software company building honest, fast, useful products — from AI-powered market analysis to private messaging to AI coding tools.">
+<title>Veltravia Technologies: ten products, built end to end</title>
+<meta name="description" content="Veltravia Technologies is an independent software company building honest, fast, useful products: an AI platform, a self-custody wallet, private messaging, streaming, eSIMs and AI trading analysis. Ten products, two live today.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236C63FF'/%3E%3Cstop offset='1' stop-color='%233B82F6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cpath d='M18 46V18l14 20 14-20v28' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -186,13 +186,7 @@
   .product .desc { margin-top: 10px; color: var(--muted); font-size: 15.5px; }
   .product ul { list-style: none; margin-top: 22px; display: grid; gap: 11px; }
   .product li { display: flex; gap: 11px; align-items: flex-start; font-size: 14.5px; color: var(--text); font-weight: 550; }
-  .check {
-    flex: none; width: 19px; height: 19px; border-radius: 6px; margin-top: 2px;
-    background: var(--accent-soft); color: var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800;
-  }
-  .product-tags { display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid var(--border); }
+  .product-tags { display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid var(--border); }
   .tag { font-size: 12px; font-weight: 600; color: var(--muted); background: #F3F5FB; border: 1px solid var(--border); padding: 5px 12px; border-radius: 999px; }
 
   /* ---------- Approach ---------- */
@@ -319,9 +313,67 @@
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .contact-card { padding: 56px 26px; }
   }
+
+  /* ---------- Icon system ---------- */
+  .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+  .icon, .check-icon, .link-icon, .arrow-icon {
+    fill: none; stroke: currentColor; stroke-width: 1.7;
+    stroke-linecap: round; stroke-linejoin: round; display: block; flex: none;
+  }
+  .icon { width: 24px; height: 24px; }
+  .product-icon { color: var(--accent); background: linear-gradient(135deg, #EEF0FF, #E4E8FF); }
+  .product-icon .icon { width: 26px; height: 26px; }
+  .product ul { align-content: start; }
+  .check-icon {
+    width: 12px; height: 12px; margin-top: 3px; color: var(--accent);
+    background: var(--accent-soft); border-radius: 6px; padding: 3.5px; stroke-width: 3.2;
+    box-sizing: content-box;
+  }
+  .value-icon { color: var(--accent); }
+  .value-icon .icon { width: 22px; height: 22px; stroke-width: 1.8; }
+  .arrow-icon { width: 18px; height: 18px; stroke-width: 2; transition: transform .2s; }
+  .link-icon { width: 15px; height: 15px; stroke-width: 2; transition: transform .2s; }
+  .contact-mail .icon { width: 19px; height: 19px; stroke-width: 1.9; }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 20px;
+    text-decoration: none; font-size: 14px; font-weight: 700; color: var(--accent);
+  }
+  .card-link:hover .link-icon { transform: translateX(3px); }
+  .product:target { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+  /* ---------- Grid sizing for ten cards ---------- */
+  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); }
+
+  @media (max-width: 720px) {
+    .grid-3 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 620px) {
+    .product { padding: 28px 24px; }
+    .hero-stats { margin-top: 48px; }
+  }
 </style>
 </head>
 <body>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V12.5"/><path d="M9.33 20V8"/><path d="M14.67 20v-5"/><path d="M20 20V4.5"/><path d="M3 20h18"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 14.5A2.5 2.5 0 0 1 18.5 17H8l-4.5 4V6.5A2.5 2.5 0 0 1 6 4h12.5A2.5 2.5 0 0 1 21 6.5z"/><path d="M8 9h8"/><path d="M8 13h5"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6H18a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z"/><path d="M3 8.5V7a2 2 0 0 1 2-2h10.5"/><circle cx="16.75" cy="12.5" r="1.15"/></symbol>
+  <symbol id="i-ai" viewBox="0 0 24 24"><path d="M11.5 3.5l1.65 4.35L17.5 9.5l-4.35 1.65L11.5 15.5 9.85 11.15 5.5 9.5l4.35-1.65z"/><path d="M18 15.5l.85 2.15L21 18.5l-2.15.85L18 21.5l-.85-2.15L15 18.5l2.15-.85z"/></symbol>
+  <symbol id="i-sim" viewBox="0 0 24 24"><path d="M7.5 3.5h5.4L19 9.3V19a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 6 19V5a1.5 1.5 0 0 1 1.5-1.5z"/><rect x="9" y="10" width="6" height="5.5" rx="1.1"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12.5" rx="2.5"/><path d="M9 20.5h6"/><path d="M12 16.5v4"/><path d="M10.6 8.2l4 2.05-4 2.05z"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.75 8.5 4.5 12l4.25 3.5"/><path d="M15.25 8.5 19.5 12l-4.25 3.5"/><path d="M13.6 5.2 10.4 18.8"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.6"/><path d="M12 2.2v3"/><path d="M12 18.8v3"/><path d="M2.2 12h3"/><path d="M18.8 12h3"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3.5 10.6 13.9"/><path d="M21 3.5 14.6 21l-4-7.1L3.5 9.9z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9.5 21v-6.5h5V21"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.5 3.2 8.1 12 12.7l8.8-4.6z"/><path d="M3.2 13.2 12 17.8l8.8-4.6"/><path d="M3.2 17.4 12 22l8.8-4.6" opacity=".45"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v6c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6z"/><path d="M9 12.1 11.2 14.3 15.4 10.1"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.2 3 5.5 13.6h5.1L10.4 21l7.7-10.9h-5.1z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.8 12.6 9.4 17.2 19.2 7.4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h14"/><path d="M13 6.5 18.5 12 13 17.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4.4 7.6 6.9 5.2a1.2 1.2 0 0 0 1.4 0l6.9-5.2"/></symbol>
+</svg>
+
 
 <nav id="nav">
   <div class="container nav-inner">
@@ -356,19 +408,19 @@
   <div class="container">
     <span class="eyebrow">Independent software company</span>
     <h1>Software that works, <span class="grad">built end-to-end.</span></h1>
-    <p class="lede">Veltravia Technologies designs, builds, and runs its own products — from AI-powered market analysis to private messaging to AI coding tools. No half-features. No shortcuts. No excuses.</p>
+    <p class="lede">Veltravia Technologies designs, builds, and runs its own products: an AI platform, a self-custody wallet, messaging, streaming, eSIMs and AI trading analysis. No half-features. No shortcuts. No excuses.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#products">Explore our products <span class="arrow">→</span></a>
+      <a class="btn-primary" href="#products">Explore our products <svg class="arrow-icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
       <a class="btn-ghost" href="#company">About the company</a>
     </div>
     <div class="hero-stats">
       <div class="stat reveal">
-        <div class="num"><span>3</span></div>
+        <div class="num"><span>10</span></div>
         <div class="lbl">Products in the family</div>
       </div>
       <div class="stat reveal d1">
         <div class="num"><span>2</span></div>
-        <div class="lbl">Platforms — Android & iOS</div>
+        <div class="lbl">Live today, more in build</div>
       </div>
       <div class="stat reveal d2">
         <div class="num"><span>100%</span></div>
@@ -382,61 +434,181 @@
   <div class="container">
     <div class="section-head reveal">
       <div class="kicker">Products</div>
-      <h2>Three products. One standard.</h2>
-      <p>Everything we ship is designed and engineered in-house — real features, real backends, and support from the people who built them.</p>
+      <h2>Ten products. One standard.</h2>
+      <p>Every app below is designed and engineered in-house. Two are live; the rest are in active build, and each card says which.</p>
     </div>
     <div class="grid-3">
-      <div class="product reveal">
+      <article class="product reveal" id="marketscope-ai">
         <div class="product-top">
-          <div class="product-icon pi-1">📈</div>
-          <span class="status status-live">Available on Android</span>
+          <div class="product-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chart"/></svg></div>
+          <span class="status status-live">Live on Android</span>
         </div>
         <h3>MarketScope AI</h3>
-        <p class="desc">AI-driven market analysis for everyday traders — personalized, transparent, and honest about the risks.</p>
+        <p class="desc">AI chart analysis for FX and synthetic traders. Upload your 4H and 15M charts, pick Scalp or Swing, and get a signal card with entry zone, stop loss, targets and the reasoning behind the call.</p>
         <ul>
-          <li><span class="check">✓</span>Analysis tailored to your trading profile</li>
-          <li><span class="check">✓</span>Daily signals with clear reasoning</li>
-          <li><span class="check">✓</span>A trader community that shares real wins</li>
-          <li><span class="check">✓</span>Plain-language risk disclosure on every call</li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Screenshot upload, no manual setup</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Entry zone, stop loss and take profits on every signal</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Risk-reward plus plain-language reasoning</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Saved signals, a community feed and a Pro tier</span></li>
         </ul>
         <div class="product-tags">
-          <span class="tag">AI analysis</span><span class="tag">Signals</span><span class="tag">Community</span>
+          <span class="tag">Trading analysis</span><span class="tag">Android</span><span class="tag">AI signals</span>
         </div>
-      </div>
-      <div class="product reveal d1">
+      </article>
+      <article class="product reveal d1" id="kora-messenger">
         <div class="product-top">
-          <div class="product-icon pi-2">💬</div>
+          <div class="product-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg></div>
           <span class="status status-dev">In development</span>
         </div>
         <h3>Kora Messenger</h3>
-        <p class="desc">A full-featured messenger built for real conversations — fast, private, and complete.</p>
+        <p class="desc">A complete messenger: private chats, groups, voice notes, calls and media, with its own accounts, trusted devices and an assistant built into the conversation.</p>
         <ul>
-          <li><span class="check">✓</span>Everything people expect from a modern messenger</li>
-          <li><span class="check">✓</span>Voice notes and calls, done properly</li>
-          <li><span class="check">✓</span>Groups and broadcasts</li>
-          <li><span class="check">✓</span>Privacy treated as a feature, not a setting</li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>One-to-one and group conversations</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Voice notes with transcripts, plus voice and video calls</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Trusted devices and passkey sign-in</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>View-once media, translation and a built-in assistant</span></li>
         </ul>
         <div class="product-tags">
-          <span class="tag">Messaging</span><span class="tag">Voice notes</span><span class="tag">Calls</span>
+          <span class="tag">Messaging</span><span class="tag">Calls</span><span class="tag">Android &amp; iOS</span>
         </div>
-      </div>
-      <div class="product reveal d2">
+      </article>
+      <article class="product reveal d2" id="veltravia-wallet">
         <div class="product-top">
-          <div class="product-icon pi-3">💻</div>
+          <div class="product-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-wallet"/></svg></div>
+          <span class="status status-dev">In development</span>
+        </div>
+        <h3>Veltravia Wallet</h3>
+        <p class="desc">A self-custody crypto wallet. Your seed phrase never leaves the device, keys stay in the OS keystore, and every signature happens locally.</p>
+        <ul>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Keys in Android Keystore and iOS Keychain, never on a server</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Local signing through Trust Wallet Core</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Markets, swap and discovery in one app</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Testnet first: Sepolia, BSC testnet, Polygon Amoy</span></li>
+        </ul>
+        <div class="product-tags">
+          <span class="tag">Self-custody</span><span class="tag">Wallet</span><span class="tag">Android &amp; iOS</span>
+        </div>
+      </article>
+      <article class="product reveal" id="veltravia-ai">
+        <div class="product-top">
+          <div class="product-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-ai"/></svg></div>
+          <span class="status status-dev">In development</span>
+        </div>
+        <h3>Veltravia AI</h3>
+        <p class="desc">Our AI platform: an assistant that plans, writes and ships software with you, backed by project memory, a coding agent and a model gateway you control.</p>
+        <ul>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Assistant chat as the front door, wired to real runs</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Coding agent with plan approval and revision history</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Project memory with provenance, never guessed facts</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Bring your own model keys, encrypted at rest</span></li>
+        </ul>
+        <div class="product-tags">
+          <span class="tag">AI platform</span><span class="tag">Coding agent</span><span class="tag">BYO keys</span>
+        </div>
+      </article>
+      <article class="product reveal d1" id="numora">
+        <div class="product-top">
+          <div class="product-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-sim"/></svg></div>
+          <span class="status status-dev">In development</span>
+        </div>
+        <h3>Numora</h3>
+        <p class="desc">eSIM data plans, one-time-code numbers and number rentals in one app, with a wallet that handles top-ups and refunds.</p>
+        <ul>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>eSIM plans from 1 GB to unlimited, with activation details</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>One-time-code numbers for WhatsApp, Telegram, Google and more</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Rentals from 4 hours to 30 days with a live SMS inbox</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Card top-up, balance and full transaction history</span></li>
+        </ul>
+        <div class="product-tags">
+          <span class="tag">eSIM</span><span class="tag">One-time numbers</span><span class="tag">Android &amp; iOS</span>
+        </div>
+      </article>
+      <article class="product reveal d2" id="streammax">
+        <div class="product-top">
+          <div class="product-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-play"/></svg></div>
+          <span class="status status-dev">In development</span>
+        </div>
+        <h3>StreamMax</h3>
+        <p class="desc">A movie and TV streaming app with a dark, cinema-grade interface, built so discovery, search and playback all feel instant.</p>
+        <ul>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Accounts with hashed passwords, no plaintext storage</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Discovery rows, search and a personal watch flow</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Cinema-dark interface made for long sessions</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>One React Native codebase for Android and iOS</span></li>
+        </ul>
+        <div class="product-tags">
+          <span class="tag">Streaming</span><span class="tag">React Native</span><span class="tag">Android &amp; iOS</span>
+        </div>
+      </article>
+      <article class="product reveal" id="vn-code">
+        <div class="product-top">
+          <div class="product-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-code"/></svg></div>
           <span class="status status-dev">In development</span>
         </div>
         <h3>VN Code</h3>
-        <p class="desc">An AI coding tool that builds apps with you — end-to-end, not just snippets.</p>
+        <p class="desc">An AI coding tool that builds applications with you, end to end: the design, the code and the running app.</p>
         <ul>
-          <li><span class="check">✓</span>AI that designs, codes, and ships full apps</li>
-          <li><span class="check">✓</span>Plugs into ChatGPT and other AI models</li>
-          <li><span class="check">✓</span>Built for people who want things working</li>
-          <li><span class="check">✓</span>Real projects, not toy demos</li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Full applications, not snippets</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Works alongside ChatGPT and other model providers</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Real projects with the files to prove it</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Built for people who want things working</span></li>
         </ul>
         <div class="product-tags">
-          <span class="tag">AI coding</span><span class="tag">App builder</span><span class="tag">ChatGPT plug-in</span>
+          <span class="tag">AI coding</span><span class="tag">App builder</span><span class="tag">Developer tools</span>
         </div>
-      </div>
+      </article>
+      <article class="product reveal d1" id="matchscope-ai">
+        <div class="product-top">
+          <div class="product-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-target"/></svg></div>
+          <span class="status status-dev">In development</span>
+        </div>
+        <h3>MatchScope AI</h3>
+        <p class="desc">Multi-sport match analysis: a match centre, sport-specific prediction markets, stats and tables, with an 18+ gate and responsible-gambling guidance built in.</p>
+        <ul>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Match centre with sport and fixture filters</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Sport-specific prediction markets</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Stats, tables and rankings in one view</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Demo data labelled as demo, never passed off as live</span></li>
+        </ul>
+        <div class="product-tags">
+          <span class="tag">Sports analysis</span><span class="tag">Backend API</span><span class="tag">Android</span>
+        </div>
+      </article>
+      <article class="product reveal d2" id="televa-messenger">
+        <div class="product-top">
+          <div class="product-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-send"/></svg></div>
+          <span class="status status-dev">In development</span>
+        </div>
+        <h3>Televa Messenger</h3>
+        <p class="desc">A private messaging client on the open Telegram network, built from the official open-source Android client with its own API credentials and branding.</p>
+        <ul>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Connects over MTProto to the open Telegram network</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Its own registered API credentials and identity</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Built on the open-source client, GPLv2 respected</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>The full messaging feature set, not a thin wrapper</span></li>
+        </ul>
+        <div class="product-tags">
+          <span class="tag">Messaging</span><span class="tag">MTProto</span><span class="tag">Android</span>
+        </div>
+      </article>
+      <article class="product reveal" id="nestora-realty">
+        <div class="product-top">
+          <div class="product-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-home"/></svg></div>
+          <span class="status status-live">Live website</span>
+        </div>
+        <h3>Nestora Realty</h3>
+        <p class="desc">A bilingual German real-estate site with 61 listings, photo galleries, filters and enquiry routes that actually go somewhere. Live today.</p>
+        <ul>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>61 listings across German cities and historic towns</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>German and English, detected automatically</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Filters, sorting and full photo galleries</span></li>
+          <li><svg class="check-icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Static build, deployed on every push</span></li>
+        </ul>
+        <a class="card-link" href="https://kora-messenger.github.io/nestora-realty/" target="_blank" rel="noopener">Visit the site<svg class="link-icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+        <div class="product-tags">
+          <span class="tag">Real estate</span><span class="tag">Website</span><span class="tag">Live</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -452,7 +624,7 @@
       <div class="step reveal">
         <div class="step-num">01</div>
         <h4>Design it properly</h4>
-        <p>Every product starts with real thinking — what it does, who it serves, and why it deserves to exist. If we can't answer that, we don't build it.</p>
+        <p>Every product starts with real thinking about what it does, who it serves, and why it deserves to exist. If we can't answer that, we don't build it.</p>
       </div>
       <div class="step reveal d1">
         <div class="step-num">02</div>
@@ -474,29 +646,29 @@
       <div class="kicker">Company</div>
       <h2 style="font-size: clamp(30px, 4.5vw, 44px); letter-spacing: -.025em; font-weight: 800; line-height: 1.12; margin-bottom: 22px;">Small by choice.<br>Serious by design.</h2>
       <p>Veltravia Technologies is an <strong>independent software company</strong>. We don't outsource the hard parts and we don't ship until things actually work.</p>
-      <p>Every product is built <strong>end-to-end under one roof</strong> — the design, the Android and iOS apps, the backend that powers them, and the support behind it all.</p>
+      <p>Every product is built <strong>end-to-end under one roof</strong>: the design, the Android and iOS apps, the backend that powers them, and the support behind it all.</p>
       <p>We'd rather build fewer things properly than many things halfway. That's the whole philosophy.</p>
     </div>
     <div class="values">
       <div class="value reveal">
-        <div class="value-icon">🔨</div>
+        <div class="value-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg></div>
         <div>
           <h4>Craft</h4>
           <p>Every feature finished, every flow tested. Nothing ships half-built.</p>
         </div>
       </div>
       <div class="value reveal d1">
-        <div class="value-icon">🤝</div>
+        <div class="value-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg></div>
         <div>
           <h4>Honesty</h4>
           <p>Plain-language policies, no dark patterns, no fake buttons.</p>
         </div>
       </div>
       <div class="value reveal d2">
-        <div class="value-icon">🚀</div>
+        <div class="value-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bolt"/></svg></div>
         <div>
           <h4>Performance</h4>
-          <p>Native apps and fast backends — speed is a feature, not a bonus.</p>
+          <p>Native apps and fast backends. Speed is a feature, not a bonus.</p>
         </div>
       </div>
     </div>
@@ -512,19 +684,23 @@
     <div class="faq">
       <details class="reveal">
         <summary>What does Veltravia Technologies do?<span class="plus">+</span></summary>
-        <div class="faq-body">We design, build, and run our own software products. Right now that's MarketScope AI (AI market analysis), Kora Messenger (private messaging), and VN Code (AI-assisted app building). Everything is built in-house.</div>
+        <div class="faq-body">We design, build, and run our own software. Today that spans ten products: MarketScope AI (AI chart analysis for traders), Veltravia AI (our AI platform), Veltravia Wallet (self-custody crypto), Kora Messenger and Televa Messenger (private messaging), Numora (eSIMs and one-time numbers), StreamMax (movies and TV), MatchScope AI (multi-sport analysis), VN Code (AI-assisted app building) and the Nestora Realty site. Everything is built in-house.</div>
+      </details>
+      <details class="reveal">
+        <summary>Which products are available now?<span class="plus">+</span></summary>
+        <div class="faq-body">Two are live: MarketScope AI on Android, and the Nestora Realty website. Every other product on this page is in active build. Each card carries its real status, and we do not mark something live until people can actually use it.</div>
       </details>
       <details class="reveal">
         <summary>Are your products free to use?<span class="plus">+</span></summary>
-        <div class="faq-body">MarketScope AI is free to start with a generous daily allowance, and a Pro tier for heavier users. Kora and VN Code are still in development — pricing will be announced with each launch.</div>
+        <div class="faq-body">MarketScope AI is free to start with a generous daily allowance and a Pro tier for heavier use. Pricing for the products still in development will be announced with each launch, not before.</div>
       </details>
       <details class="reveal">
         <summary>Which platforms do you support?<span class="plus">+</span></summary>
-        <div class="faq-body">Android first — every product ships on Android, with iOS following. MarketScope AI is available on Android today.</div>
+        <div class="faq-body">Android and iOS, mostly from one React Native codebase. MarketScope AI ships on Android today, Televa and MatchScope are Android-first, and the web products are plain HTML that loads without a build step.</div>
       </details>
       <details class="reveal">
         <summary>How do I get support or report a problem?<span class="plus">+</span></summary>
-        <div class="faq-body">Email <a href="mailto:support@veltraviatech.com" style="color: var(--accent); font-weight: 600; text-decoration: none;">support@veltraviatech.com</a> — we read everything and we answer. For anything urgent, put "Urgent" in the subject line.</div>
+        <div class="faq-body">Email <a href="mailto:support@veltraviatech.com" style="color: var(--accent); font-weight: 600; text-decoration: none;">support@veltraviatech.com</a>. We read everything and we answer. For anything urgent, put "Urgent" in the subject line.</div>
       </details>
     </div>
   </div>
@@ -534,8 +710,8 @@
   <div class="container">
     <div class="contact-card reveal">
       <h2>Let's talk.</h2>
-      <p>Questions, feedback, or partnership ideas — we read everything and we answer.</p>
-      <a class="contact-mail" href="mailto:support@veltraviatech.com">✉️&nbsp; support@veltraviatech.com</a>
+      <p>Questions, feedback, or partnership ideas: we read everything and we answer.</p>
+      <a class="contact-mail" href="mailto:support@veltraviatech.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg><span>support@veltraviatech.com</span></a>
     </div>
   </div>
 </section>
@@ -552,9 +728,12 @@
       </div>
       <div class="footer-col">
         <h5>Products</h5>
-        <a href="#products">MarketScope AI</a>
-        <a href="#products">Kora Messenger</a>
-        <a href="#products">VN Code</a>
+        <a href="#marketscope-ai">MarketScope AI</a>
+        <a href="#veltravia-ai">Veltravia AI</a>
+        <a href="#veltravia-wallet">Veltravia Wallet</a>
+        <a href="#kora-messenger">Kora Messenger</a>
+        <a href="#numora">Numora</a>
+        <a href="#products">All ten products</a>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
@@ -570,7 +749,7 @@
     </div>
     <div class="footer-bottom">
       <p>© 2026 Veltravia Technologies. All rights reserved.</p>
-      <p>Designed &amp; built in-house — like everything we ship.</p>
+      <p>Designed &amp; built in-house, like everything we ship.</p>
     </div>
   </div>
 </footer>
